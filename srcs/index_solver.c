@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:53 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 12:46:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:40:17 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ void	set_solved_index(int *index, t_all *info)
 	while (node->link_next != info->l_a)
 	{
 		i = 0;
-		while (i < info->count)
-			i = loop_index(index, i, &node, info);
+		i = loop_index(index, i, &node, info);
 		node = node->link_next;
 	}
-	while (i < info->count)
-		i = loop_index(index, i, &node, info);
+	i = loop_index(index, i, &node, info);
 }
 
 void	sort_list(int *solver, int len)

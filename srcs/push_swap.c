@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:06 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 13:49:46 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:54:10 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_node	*take_multi_args_count(int ac, char **av)
 			head = ft_add_to_one(head, integer);
 		if (!unique(integer, &head) && i == 1)
 			return (av_error(&head, "Error\n"));
-		else
+		else if (i >= 2)
 			head = loop_add(head, integer);
 		i++;
 	}

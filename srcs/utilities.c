@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:51:15 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 14:27:01 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:38:17 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,17 @@ t_node	*loop_add(t_node *head, int integer)
 	t_node	*node;
 
 	node = head;
-	while (node->link_next != head)
+	while (head->link_next != node)
 	{
-		if (!unique(integer, &node))
+		if (!unique(integer, &head))
 		{
-			ft_list_destroyer(&node);
+			ft_list_destroyer(&head);
 			return (av_error(&head, "Error\n"));
 		}
-	node = node->link_next;
+		head = head->link_next;
 	}
-	head = ft_add_at_end(node->link_next, node, integer);
+	head = head->link_next;
+	head = ft_add_at_end(head, head->link_prev, integer);
+	node = NULL;
 	return (head);
 }
