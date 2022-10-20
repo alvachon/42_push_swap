@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:48:46 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:35:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:26:38 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_bool	size(long integer)
 	return (TRUE);
 }
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 0 && c <= 127)
 	{

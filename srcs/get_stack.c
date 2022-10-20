@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:39:59 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:52:42 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:28:23 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,14 @@ void	move_push(t_get stack, t_all *info)
 	{
 		if (!info->l_a)
 			return ;
-		push_checker(&info->l_a, &info->l_b);//from, to
+		push_checker(&info->l_a, &info->l_b);
 		write_op("pb\n");
 	}
 	else if (stack == L_B)
 	{
 		if (!info->l_b)
 			return ;
-		push_checker(&info->l_b, &info->l_a);//from, to
+		push_checker(&info->l_b, &info->l_a);
 		write_op("pa\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:46:48 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:47:37 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:41:27 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push_to_empty(t_node ***head, t_node ***empty)
 
 	temp = malloc(sizeof(t_node));
 	if (temp == NULL)
-       	return ;
+		return ;
 	temp->link_prev = temp;
 	temp->data = (**head)->data;
 	temp->index = (**head)->index;
@@ -33,7 +33,7 @@ void	push_to_one(t_node ***head, t_node ***to_one)
 
 	new_top = malloc(sizeof(t_node));
 	if (new_top == NULL)
-       	return ;
+		return ;
 	new_queue = **to_one;
 	new_queue->link_prev = new_top;
 	new_queue->link_next = new_top;
@@ -54,7 +54,7 @@ void	push_at_head(t_node ***head, t_node ***to_head)
 	old_top = **to_head;
 	new_top = malloc(sizeof(t_node));
 	if (new_top == NULL)
-       	return ;
+		return ;
 	new_top->link_prev = queue;
 	new_top->data = (**head)->data;
 	new_top->index = (**head)->index;

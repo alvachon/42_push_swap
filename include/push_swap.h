@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:08 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 18:01:49 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:10:20 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 # include "doubly_circ_ll.h"
 
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+
 typedef struct s_all
 {
 	int		count;
-	int		loop;
 	t_node	*l_a;
 	t_node	*l_b;
 }	t_all;
@@ -30,14 +33,6 @@ typedef enum e_get
 	BOTH = 'A' + 'B'
 }	t_get;
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-/*push_swap.c*/
-t_node	*ft_check_params(int ac, char **av);
-t_node	*take_one_arg_count(char **av);
-t_node	*take_multi_args_count(int ac, char **av);
 /*arg_split.c*/
 void	ft_free_table(void ***table);
 char	*ft_strndup(const char *str, size_t len);
@@ -81,6 +76,10 @@ void	push_to_empty(t_node ***head, t_node ***empty);
 void	push_to_one(t_node ***head, t_node ***to_one);
 void	push_at_head(t_node ***head, t_node ***to_head);
 void	pop_head(t_node **node);
+/*push_swap.c*/
+t_node	*ft_check_params(int ac, char **av);
+t_node	*take_one_arg_count(char **av);
+t_node	*take_multi_args_count(int ac, char **av);
 /*stack_action.c*/
 void	repeat_op(void (*op)(t_get, t_all *), int i, t_get stack, t_all *info);
 void	do_less_moves_to_tail(int pos, int len, t_get stack, t_all *info);
@@ -104,5 +103,7 @@ void	sandwich_sort(t_all *info, int chunk_size);
 size_t	ft_strlen(const char *s);
 void	write_op(char *message);
 void	ft_display(t_node *head);
+int		loop_index(int *index, int i, t_node **node, t_all *info);
+t_node	*loop_add(t_node *head, int integer);
 
 #endif

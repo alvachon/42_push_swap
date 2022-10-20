@@ -6,13 +6,13 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:00:47 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:18:01 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:27:34 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\n' || c == '\t'
 		|| c == '\v' || c == '\f' || c == '\r')
@@ -44,7 +44,7 @@ long	ft_atol(const char *str)
 	return (res * sign);
 }
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int				result;
 	int				sign;
@@ -69,7 +69,7 @@ int		ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int		ft_list_destroyer(t_node **head)
+int	ft_list_destroyer(t_node **head)
 {
 	t_node	*node;
 	t_node	*new_next;

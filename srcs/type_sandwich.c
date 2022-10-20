@@ -6,13 +6,13 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:22:40 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 18:55:19 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:52:31 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		find_index_smaller_than(int chunk, t_node *head)
+int	find_index_smaller_than(int chunk, t_node *head)
 {
 	int	steps;
 
@@ -27,7 +27,7 @@ int		find_index_smaller_than(int chunk, t_node *head)
 	return (0);
 }
 
-int		find_index_bigger_than(int chunk, t_node *head)
+int	find_index_bigger_than(int chunk, t_node *head)
 {
 	int		steps;
 
@@ -63,9 +63,9 @@ void	return_to_la(t_all *info)
 
 void	sandwich_sort(t_all *info, int chunk_size)
 {
-	int		steps[2];
-	int 	chunk;
-	int 	count;
+	int	steps[2];
+	int	chunk;
+	int	count;
 
 	chunk = chunk_size;
 	count = 0;

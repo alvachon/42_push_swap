@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:53 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:33:51 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:46:19 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,19 @@ void	set_solved_index(int *index, t_all *info)
 	{
 		i = 0;
 		while (i < info->count)
-		{
-			if (index[i] == node->data)
-			{
-				node->index = i;
-				break;
-			}
-			i++;
-		}
+			i = loop_index(index, i, &node, info);
 		node = node->link_next;
 	}
 	while (i < info->count)
-	{
-		if (index[i] == node->data)
-		{
-			node->index = i;
-			break;
-		}
-		i++;
-	}
+		i = loop_index(index, i, &node, info);
 }
 
 void	sort_list(int *solver, int len)
 {
-	int max_i;
+	int	max_i;
 	int	median_i;
-	int min_i;
-	int pos;
+	int	min_i;
+	int	pos;
 
 	max_i = 0;
 	while (max_i < len)
@@ -80,7 +66,6 @@ void	put_data(int *solver, t_node *l_a)
 
 	node = l_a;
 	head = node;
-
 	i = 0;
 	while (node->link_next != head)
 	{
@@ -91,7 +76,7 @@ void	put_data(int *solver, t_node *l_a)
 	solver[i] = node->data;
 }
 
-int		total_items(t_node *node)
+int	total_items(t_node *node)
 {
 	int		count;
 	t_node	*head;

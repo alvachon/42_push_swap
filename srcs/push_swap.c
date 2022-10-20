@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:06 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 18:15:21 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:49:46 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_node	*take_multi_args_count(int ac, char **av)
 {
 	t_node	*head;
-	t_node	*node;
 	int		i;
 	int		integer;
 
@@ -29,25 +28,13 @@ t_node	*take_multi_args_count(int ac, char **av)
 			return (av_error(&head, "Error\n"));
 		integer = ft_atoi(av[i]);
 		if (head == NULL)
-			head = ft_add_to_empty(head, integer);//
+			head = ft_add_to_empty(head, integer);
 		else if (unique(integer, &head) && i == 1)
 			head = ft_add_to_one(head, integer);
-		/*else if (!unique(integer, &head) && i == 1)
-			return (av_error(&head, "Error\n"));*/
+		if (!unique(integer, &head) && i == 1)
+			return (av_error(&head, "Error\n"));
 		else
-		{
-			node = head;
-			while (node->link_next != head)
-			{
-				if (!unique(integer, &node))
-				{
-					ft_list_destroyer(&node);
-					return (av_error(&head, "Error\n"));
-				}
-				node = node->link_next;
-			}
-			head = ft_add_at_end(node->link_next, node, integer);
-		}
+			head = loop_add(head, integer);
 		i++;
 	}
 	return (head);
@@ -70,9 +57,7 @@ t_node	*take_one_arg_count(char **av)
 t_node	*ft_check_params(int ac, char **av)
 {
 	if (ac == 2)
-	{
 		return (take_one_arg_count(av));
-	}
 	return (take_multi_args_count(ac, av));
 }
 
@@ -92,10 +77,7 @@ int	main(int ac, char **av)
 	else if (info.count <= 25)
 		insertion_sort(&info);
 	else if (info.count <= 250)
-	{
 		sandwich_sort(&info, 25);
-		ft_display(info.l_a);
-	}
 	else
 		sandwich_sort(&info, 50);
 	ft_list_destroyer(&info.l_a);

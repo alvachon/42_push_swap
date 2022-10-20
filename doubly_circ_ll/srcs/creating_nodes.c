@@ -6,11 +6,11 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:20:32 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/19 15:22:37 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:05:49 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/doubly_circ_ll.h"
+#include "../include/doubly_circ_ll.h"
 
 t_node	*ft_add_to_empty(t_node *head, int data)
 {
@@ -46,6 +46,16 @@ t_node	*ft_add_to_one(t_node *head, int data)
 	return (head);
 }
 
+t_node	*relink_circular(t_node **new, t_node **old, t_node **top, t_node **h)
+{
+	(*new)->link_prev = *old;
+	(*old)->link_next = *new;
+	(*new)->link_next = *top;
+	(*top)->link_prev = *new;
+	*h = *top;
+	return (*h);
+}
+
 t_node	*ft_add_at_end(t_node *head, t_node *queue, int data)
 {
 	t_node	*new_queue;
@@ -60,14 +70,7 @@ t_node	*ft_add_at_end(t_node *head, t_node *queue, int data)
 	new_queue->data = data;
 	new_queue->index = -1;
 	if (top->link_prev != top)
-	{
-		new_queue->link_prev = old_queue;
-		old_queue->link_next = new_queue;
-		new_queue->link_next = top;
-		top->link_prev = new_queue;
-		head = top;
-		return (head);
-	}
+		return (relink_circular(&new_queue, &old_queue, &top, &head));
 	else
 	{
 		old_queue->link_next = top;
