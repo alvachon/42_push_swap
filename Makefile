@@ -6,7 +6,7 @@
 #    By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 17:49:39 by alvachon          #+#    #+#              #
-#    Updated: 2022/10/21 12:16:55 by alvachon         ###   ########.fr        #
+#    Updated: 2022/10/21 16:46:04 by alvachon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,32 +33,48 @@ NAME = push_swap
 FLAGS = -Wall -Wextra -Werror
 CC = gcc
 
-SRC =	srcs/arg_split.c \
-		srcs/error_handling.c \
-		srcs/error_helper.c \
-		srcs/error_return.c \
-		srcs/get_stack.c \
-		srcs/index_solver.c \
-		srcs/moves.c \
-		srcs/push_checker.c \
-		srcs/push_swap.c \
-		srcs/stack_action.c \
-		srcs/stack_finder.c \
-		srcs/type_algo.c \
-		srcs/type_sandwich.c \
-		srcs/utilities.c \
-		srcs/checker.c
+DIR = srcs
+
+SRCS_DIR =  srcs/arg_split.c \
+			srcs/error_handling.c \
+			srcs/error_helper.c \
+			srcs/error_return.c \
+			srcs/get_stack.c \
+			srcs/index_solver.c \
+			srcs/moves.c \
+			srcs/push_checker.c \
+			srcs/push_swap.c \
+			srcs/stack_action.c \
+			srcs/stack_finder.c \
+			srcs/type_algo.c \
+			srcs/type_sandwich.c \
+			srcs/utilities.c \
+
+SRC =	arg_split.c \
+		error_handling.c \
+		error_helper.c \
+		error_return.c \
+		get_stack.c \
+		index_solver.c \
+		moves.c \
+		push_checker.c \
+		push_swap.c \
+		stack_action.c \
+		stack_finder.c \
+		type_algo.c \
+		type_sandwich.c \
+		utilities.c \
 
 OBJ_DIR = _objFiles
-OBJ_SRC = $(SRC:.c=.o)
-OBJ = $(OBJ_DIR)/*.o
+OBJ_S = $(SRC:.c=.o)
+OBJS = $(OBJ_DIR)/*.o
 
 HEAD = include/push_swap.h
 
 # LIBRARY
 LISTDC_A = doubly_circ_ll.a
 LISTDC_DIR = doubly_circ_ll
-PUSHSWAP =	$(LISTDC_DIR)/$(LISTDC_A)
+LISTDC = $(LISTDC_DIR)/$(LISTDC_A)
 
 # COLORS
 YELL= '\033[0;33m'
@@ -70,23 +86,20 @@ NONE= '\033[0m'
 # RULES
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJS)
 	@clear
 	@echo "$$SANDWICH"
 	@echo $(YELL) "\nIncoming :\n" $(NONE)
 	@make -C $(LISTDC_DIR)
-	@$(CC) $(FLAGS) $(PUSHSWAP) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(LISTDC) $(OBJ_S) -o $(NAME)
+	@mv $(OBJ_S) $(OBJ_DIR)
 	@echo $(GRE) "\nCompilation all done.\n" $(NONE)
 
-$(OBJ): $(SRC)
+$(OBJS): $(SRCS_DIR)
 	@echo $(GRAY) "Making Object Files" $(NONE)
-	@gcc $(FLAGS) -c $(SRC)
+	@gcc $(FLAGS) -c $(SRCS_DIR)
 	@echo $(GRAY) "Moving Object Files to $(OBJ_DIR). . ." $(NONE)
 	@mkdir -p $(OBJ_DIR)
-	@mv *.o $(OBJ_DIR)
-
-debug:
-	@$(CC) -g $(FLAGS) $(PUSHSWAP) $(SRC) -o $(NAME)
 
 clean:
 	@echo $(YELL) "\nRemoving object:\n" $(NONE)
@@ -103,8 +116,6 @@ fclean: clean
 
 re: fclean all
 
-norm: $(SRC)
-	@echo $(NONE)$(YELL) "\nNorminette verification :\n" $(NONE)
-	@norminette $(SRC) *.h */*.h
-	@make -C $(LISTDC_DIR) norm
-	@echo $(NONE)$(GRE) "OK - - - - - - - - - - \n" $(NONE)
+valgrind:
+	@valgrind --leak-check=full ./push_swap 2 1
+	@valgrind --leak-check=full ./push_swap 2 3 1

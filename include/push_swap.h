@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:08 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/21 13:06:07 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:54:32 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,21 @@ void	ft_display(t_node *head);
 int		loop_index(int *index, int i, t_node **node, t_all *info);
 t_node	*loop_add(t_node *head, int integer);
 /*checker.c*/
+void	ft_putstr_fd(char *s, int fd);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE BUFSIZ
+# endif
+
+# if BUFFER_SIZE > 9223372036854775806
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
+# endif
+
+char	*get_next_line(int fd);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif

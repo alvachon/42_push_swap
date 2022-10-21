@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:48:46 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 12:26:38 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:44:03 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_bool	sorted(t_node *l_a)
 			return (FALSE);
 		l_a = l_a->link_next;
 	}
-	if (l_a->data > l_a->link_next->data)
+	if (l_a->data < l_a->link_next->data)
 		return (FALSE);
 	return (TRUE);
 }

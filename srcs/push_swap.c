@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:06 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/21 13:04:11 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:29:51 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ int	main(int ac, char **av)
 	if (!info.l_a || !solved_by_index(&info))
 		return (0);
 	if (info.count == 0 || info.count == 1 || sorted(info.l_a))
+	{
 		ft_list_destroyer(&info.l_a);
+		return (0);
+	}
 	if (info.count == 2)
 		in_place_two(L_A, &info);
 	else if (info.count == 3)
