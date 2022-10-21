@@ -6,7 +6,7 @@
 #    By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 17:49:39 by alvachon          #+#    #+#              #
-#    Updated: 2022/10/19 17:55:30 by alvachon         ###   ########.fr        #
+#    Updated: 2022/10/21 12:16:55 by alvachon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRC =	srcs/arg_split.c \
 		srcs/stack_finder.c \
 		srcs/type_algo.c \
 		srcs/type_sandwich.c \
-		srcs/utilities.c
+		srcs/utilities.c \
+		srcs/checker.c
 
 OBJ_DIR = _objFiles
 OBJ_SRC = $(SRC:.c=.o)

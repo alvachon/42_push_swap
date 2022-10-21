@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:39:59 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 12:28:23 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:43:23 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ void	move_reverse_rotate(t_get stack, t_all *info)
 		reverse_rotate(&info->l_b);
 		write_op("rrb\n");
 	}
+	else if (stack == BOTH)
+	{
+		if (!info->l_a || !info->l_a->link_next)
+			return ;
+		if (!info->l_b || !info->l_b->link_next)
+			return ;
+		reverse_rotate(&info->l_a);
+		reverse_rotate(&info->l_b);
+		write_op("rrr\n");
+	}
 }
 
 void	move_rotate(t_get stack, t_all *info)
@@ -82,6 +92,16 @@ void	move_rotate(t_get stack, t_all *info)
 			return ;
 		rotate(&info->l_b);
 		write_op("rb\n");
+	}
+	else if (stack == BOTH)
+	{
+		if (!info->l_a || !info->l_a->link_next)
+			return ;
+		if (!info->l_b || !info->l_b->link_next)
+			return ;
+		rotate(&info->l_a);
+		rotate(&info->l_b);
+		write_op("rr\n");
 	}
 }
 

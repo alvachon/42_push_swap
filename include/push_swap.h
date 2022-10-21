@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:08 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 18:37:36 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:06:07 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ void	write_op(char *message);
 void	ft_display(t_node *head);
 int		loop_index(int *index, int i, t_node **node, t_all *info);
 t_node	*loop_add(t_node *head, int integer);
+/*checker.c*/
 
 #endif
