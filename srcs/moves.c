@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:44:12 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/21 13:48:05 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:30:52 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,8 @@ void	reverse_rotate(t_node **node)
 
 void	push_checker(t_node **from, t_node **to)
 {
-	if (*to == NULL)
-		push_to_empty(&from, &to);
-	else if ((*to)->link_next == *to)
-		push_to_one(&from, &to);
+	if (total_items(*to) == 0)
+		push_to_empty(&*from, &*to);
 	else
-		push_at_head(&from, &to);
-	pop_head(&*from);
+		push_at_head(&*from, &*to);
 }

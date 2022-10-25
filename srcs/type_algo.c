@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:36:49 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 13:51:01 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:15:50 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	insertion_sort(t_all *info)
 		count++;
 		if (sorted(info->l_a))
 			break ;
+		ft_display(info->l_a);
+		ft_display(info->l_b);
 		move_push(L_A, info);
 	}
 	in_place_three(L_A, info);

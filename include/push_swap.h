@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:08 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/21 14:54:32 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:05:50 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,8 @@ void	rotate(t_node **node);
 void	reverse_rotate(t_node **node);
 void	push_checker(t_node **from, t_node **to);
 /*push_checker.c*/
-void	push_to_empty(t_node ***head, t_node ***empty);
-void	push_to_one(t_node ***head, t_node ***to_one);
-void	push_at_head(t_node ***head, t_node ***to_head);
-void	pop_head(t_node **node);
+void	push_to_empty(t_node **head_la, t_node **head_lb);
+void	push_at_head(t_node **head_la, t_node **head_lb);
 /*push_swap.c*/
 t_node	*ft_check_params(int ac, char **av);
 t_node	*take_one_arg_count(char **av);
