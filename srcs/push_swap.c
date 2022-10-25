@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:06 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/25 17:15:41 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:52:29 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	main(int ac, char **av)
 		sandwich_sort(&info, 25);
 	else
 		sandwich_sort(&info, 50);
-	ft_display(info.l_a);
 	ft_list_destroyer(&info.l_a);
 	return (0);
 }

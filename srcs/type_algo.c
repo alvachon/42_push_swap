@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:36:49 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/25 17:15:50 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:37:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	in_place_two(t_get stack, t_all *info)
 	t_node	*node;
 
 	node = ft_select(stack, info);
-	if (node->index > node->link_next->index)
+	if (node->data > node->link_next->data)
 		move_swap(stack, info);
 }
 
@@ -41,8 +41,6 @@ void	insertion_sort(t_all *info)
 		count++;
 		if (sorted(info->l_a))
 			break ;
-		ft_display(info->l_a);
-		ft_display(info->l_b);
 		move_push(L_A, info);
 	}
 	in_place_three(L_A, info);

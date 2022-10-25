@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:29:08 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/25 16:05:50 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:47:54 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ long	ft_atol(const char *str);
 int		ft_atoi(const char *str);
 int		ft_list_destroyer(t_node **head);
 /*error_return.c*/
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 int		error(char *message);
 void	*null_error(char *message);
 void	*av_error(t_node **list, char *message);
