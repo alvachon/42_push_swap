@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:36:49 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/25 18:37:24 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:40:24 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,49 @@ void	in_place_three(t_get stack, t_all *info)
 	in_place_two(stack, info);
 }
 
+void	check_reverse(t_all *info)
+{
+	t_node	*a;
+	t_node	*b;
+
+	a = info->l_a;
+	b = info->l_b;
+	if (a < a->link_next && a < a->link_prev && b > b->link_next
+		&& b > b->link_prev)
+	{
+		move_reverse_rotate(BOTH, &info);
+		move_swap(BOTH, &info);
+	}
+	else if (a < a->link_next && a < a->link_prev)
+	{
+		move_reverse_rotate(L_A, &info);
+		move_swap(L_A, &info);
+	}
+	else if (b > b->link_next && b > b->link_prev)
+	{
+		move_reverse_rotate(L_B, &info);
+		move_swap(L_B, &info);
+	}
+
+}
+
+void	conditional_move(t_all *info)
+{
+	t_node	*a;
+	t_node	*b;
+
+	a = info->l_a;
+	b = info->l_b;
+	if (a > a->link_next && a < a->link_prev && b < b->link_next
+		&& b > b->link_prev)
+		move_swap(BOTH, &info);
+	else if (a > a->link_next && a < a->link_prev)
+		move_swap(L_A, &info);
+	else if (b < b->link_next && b > b->link_prev)
+		move_swap(L_B, &info);
+	check_reverse(info);
+}
+
 void	insertion_sort(t_all *info)
 {
 	int	count;
@@ -42,6 +85,7 @@ void	insertion_sort(t_all *info)
 		if (sorted(info->l_a))
 			break ;
 		move_push(L_A, info);
+		conditional_move(info);
 	}
 	in_place_three(L_A, info);
 	while (count-- > 0)
