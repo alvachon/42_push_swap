@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:35:00 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 18:37:32 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:59:11 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ t_node	*ft_add_to_empty(t_node *head, int data);
 t_node	*ft_add_to_one(t_node *head, int data);
 /*Creating node and add the rest of the list after.*/
 t_node	*ft_add_at_end(t_node *head, t_node *queue, int data);
-/* Relink circular for each node */
-void	relink_circular(t_node *new, t_node *old, t_node **h);
 
 #endif

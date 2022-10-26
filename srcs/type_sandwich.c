@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:22:40 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/21 13:48:33 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:17:06 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	do_less_steps(int option_1, int option_2, t_all *info)
 	else
 		repeat_op(move_reverse_rotate, option_2, L_A, info);
 	move_push(L_A, info);
+	if (info->l_a && info->l_a->link_next != info->l_a
+		&& info->l_b && info->l_b->link_next != info->l_b)
+		conditional_move(info);
 }
 
 void	return_to_la(t_all *info)
@@ -74,7 +77,7 @@ void	sandwich_sort(t_all *info, int chunk_size)
 		steps[0] = find_index_smaller_than(chunk, info->l_a);
 		steps[1] = find_index_bigger_than(chunk, info->l_a);
 		do_less_steps(steps[0], steps[1], info);
-		if (info->l_b->index > chunk - chunk_size / 2)
+		if (info->l_b->index < chunk - chunk_size / 2)
 			move_rotate(L_B, info);
 		count++;
 		if (count > chunk)

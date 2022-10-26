@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:53 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/20 16:40:17 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:16:14 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,11 @@ t_bool	solved_by_index(t_all *info)
 	int	*solver;
 
 	info->count = total_items(info->l_a);
+	if (info->count <= 1)
+	{
+		ft_list_destroyer(&info->l_a);
+		return (FALSE);
+	}
 	solver = malloc(info->count * sizeof(int));
 	if (!solver)
 		return (FALSE);

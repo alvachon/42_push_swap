@@ -6,7 +6,7 @@
 /*   By: alvachon <alvachon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:20:32 by alvachon          #+#    #+#             */
-/*   Updated: 2022/10/25 13:18:18 by alvachon         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:58:54 by alvachon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,6 @@ t_node	*ft_add_to_one(t_node *head, int data)
 	new_top = NULL;
 	new_queue = NULL;
 	return (head);
-}
-
-void	relink_circular(t_node *new, t_node *old, t_node **h)
-{
-	new->link_prev = old;
-	old->link_next = new;
-	new->link_next = *h;
-	(*h)->link_prev = new;
 }
 
 t_node	*ft_add_at_end(t_node *head, t_node *queue, int data)
