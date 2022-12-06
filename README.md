@@ -1,1 +1,2 @@
-# push_swap
+# PUSH_SWAP ![alvachon's 42 push_swap Score](https://badge42.vercel.app/api/v2/clb9zrpvt00250fl97rqy9hie/project/2751232) ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
